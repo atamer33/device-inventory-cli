@@ -1,0 +1,5 @@
+devices:
+  - name: pe1-lab
+    mgmt_ip: 10.0.0.1
+    role: provider
+    os: sros

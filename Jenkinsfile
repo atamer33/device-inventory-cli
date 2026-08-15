@@ -4,12 +4,14 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
-                    pip3 install --no-cache-dir \
+                    python3 -m venv .venv
+                    . .venv/bin/activate
+                    pip install --no-cache-dir \
                         --trusted-host pypi.org \
                         --trusted-host files.pythonhosted.org \
                         -r requirements.txt
                     export PYTHONPATH=src
-                    python3 -m pytest -q
+                    python -m pytest -q
                 '''
             }
         }
